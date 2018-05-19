@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ABPHelper.CodeGenerator.AbpHelperWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:ABPHelper.CodeGenerator.Views"
+             mc:Ignorable="d"
+             Name="AbpHelper">
+    <Grid>
+        <TabControl Margin="0,0,0.333,-324.333" >
+            <TabItem Header="Generate Business">
+                <views:AddNewBusiness />
+            </TabItem>
+            <TabItem Header="Generate ApplicationService Methods">
+                <views:AddNewServiceMethod/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
