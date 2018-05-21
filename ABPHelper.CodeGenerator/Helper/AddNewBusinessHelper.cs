@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -42,7 +43,8 @@ namespace ABPHelper.CodeGenerator.Helper
                 {
                     _appProj = project;
                 }
-                if (Regex.IsMatch(project.Name, @"(.+)\.Web"))
+                //解决正则匹配到webapi项目
+                if (Regex.IsMatch(project.Name, @"(.+)\.Web")&& !Regex.IsMatch(project.Name, @"(.+)\.WebApi"))
                 {
                     _webProj = project;
                 }
@@ -105,7 +107,12 @@ namespace ABPHelper.CodeGenerator.Helper
                     var fileName = viewFileViewModel.FileName + ext;
                     _statusBar.Progress(true, $"Generating view file: {fileName}", _steps++, _totalSteps);
                     if (FindProjectItem(folder, fileName, ItemType.PhysicalFile) != null) continue;
-                    string content = Engine.Razor.RunCompile(ext == ".cshtml" ? "CshtmlTemplate" : "JsTemplate", typeof(ViewFileModel), model);
+
+                    var template = GetTemplateText(ext == ".cshtml" ? "CshtmlTemplate" : "JsTemplate");
+
+                    var content = Engine.Razor.RunCompile(template, "ViewFileModel"+ ((ext == ".cshtml") ? "CshtmlTemplate" : "JsTemplate"), null, model);
+
+                 //   string content = Engine.Razor.RunCompile(ext == ".cshtml" ? "CshtmlTemplate" : "JsTemplate", typeof(ViewFileModel), model);
                     CreateAndAddFile(folder, fileName, content);
                 }
             }
@@ -124,12 +131,18 @@ namespace ABPHelper.CodeGenerator.Helper
             if (FindProjectItem(folder, fileName, ItemType.PhysicalFile) != null) return;
             var model = new ServiceFileModel
             {
+                BusinessName = parameter.BusinessName,
                 AppName = _appName,
                 Namespace = GetNamespace(parameter),
                 InterfaceName = parameter.ServiceInterfaceName,
                 ServiceName = parameter.ServiceName
             };
-            string content = Engine.Razor.RunCompile("ServiceFileTemplate", typeof(ServiceFileModel), model);
+
+            var template = GetTemplateText("ServiceFileTemplate");
+
+            var content = Engine.Razor.RunCompile(template, "ServiceFileModel", null, model);
+
+          //  string content = Engine.Razor.RunCompile("ServiceFileTemplate", typeof(ServiceFileModel), model);
             CreateAndAddFile(folder, fileName, content);
         }
 
@@ -140,10 +153,14 @@ namespace ABPHelper.CodeGenerator.Helper
             if (FindProjectItem(folder, fileName, ItemType.PhysicalFile) != null) return;
             var model = new ServiceInterfaceFileModel
             {
+                BusinessName = parameter.BusinessName,
                 Namespace = GetNamespace(parameter),
                 InterfaceName = parameter.ServiceInterfaceName
             };
-            string content = Engine.Razor.RunCompile("ServiceInterfaceFileTemplate", typeof(ServiceInterfaceFileModel), model);
+            var template = GetTemplateText("ServiceInterfaceFileTemplate");
+
+            var content = Engine.Razor.RunCompile(template, "ServiceInterfaceFileModel", null, model);
+         //   string content = Engine.Razor.RunCompile("ServiceInterfaceFileTemplate", typeof(ServiceInterfaceFileModel), model);
             CreateAndAddFile(folder, fileName, content);
         }
 

@@ -86,10 +86,10 @@ namespace ABPHelper.CodeGenerator.ViewModels
             {
                 if (Set(ref _businessName, value))
                 {
-                    ServiceFolder = BusinessName + "s";
+                    ServiceFolder =$@"Domain\Plat\{BusinessName}s";
                     ServiceInterfaceName = $"I{BusinessName}AppService";
                     ServiceName = $"{BusinessName}AppService";
-                    ViewFolder = $@"App\Main\views\{ServiceFolder.LowerFirstChar()}";
+                    ViewFolder = $@"Areas\Plat\Views\{BusinessName}";
                 }
             }
         }

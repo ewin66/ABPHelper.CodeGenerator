@@ -4,15 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:ABPHelper.CodeGenerator.Views"
+             xmlns:views1="clr-namespace:ABPHelper.CodeGenerator.Views"
              mc:Ignorable="d"
+             d:DesignHeight="335" d:DesignWidth="290"
              Name="AbpHelper">
     <Grid>
-        <TabControl Margin="0,0,0.333,-324.333" >
+        <TabControl>
             <TabItem Header="Generate Business">
-                <views:AddNewBusiness />
+                <views1:AddNewBusiness/>
             </TabItem>
             <TabItem Header="Generate ApplicationService Methods">
-                <views:AddNewServiceMethod/>
+                <views1:AddNewServiceMethod/>
             </TabItem>
         </TabControl>
     </Grid>

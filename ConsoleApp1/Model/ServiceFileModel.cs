@@ -1,8 +1,7 @@
-﻿namespace ABPHelper.CodeGenerator.Models.TemplateModels
+﻿namespace ConsoleApp1.Model
 {
     public class ServiceFileModel
     {
-        public string BusinessName { get; set; }
         public string AppName { get; set; }
 
         public string Namespace { get; set; }

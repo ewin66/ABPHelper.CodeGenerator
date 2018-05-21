@@ -66,6 +66,7 @@
     <Compile Include="Helper\AddNewBusinessHelper.cs" />
     <Compile Include="Helper\AddNewServiceMethodHelper.cs" />
     <Compile Include="Helper\HelperBase.cs" />
+    <Compile Include="Helper\Utility.cs" />
     <Compile Include="ItemType.cs" />
     <Compile Include="Models\HelperModels\AddNewBusinessModel.cs" />
     <Compile Include="Models\HelperModels\AddNewServiceMethodModel.cs" />
@@ -95,15 +96,26 @@
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="Templates\CshtmlTemplate.cshtml" />
-    <EmbeddedResource Include="Templates\DtoTemplate.cshtml" />
-    <EmbeddedResource Include="Templates\JsTemplate.cshtml" />
-    <EmbeddedResource Include="Templates\ServiceFileTemplate.cshtml" />
-    <EmbeddedResource Include="Templates\ServiceInterfaceFileTemplate.cshtml" />
+    <EmbeddedResource Include="Templates\CshtmlTemplate.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\DtoTemplate.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\JsTemplate.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\ServiceFileTemplate.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\ServiceInterfaceFileTemplate.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <VSCTCompile Include="AbpHelperWindowPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
     <Content Include="index.html" />
     <Content Include="Resources\AbpHelperWindowCommand.png" />

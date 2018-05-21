@@ -31,6 +31,12 @@
     group; your package should define its own command set in order to avoid collisions
     with command ids defined by other packages. -->
 
+    <Groups>
+      <Group guid="guidAbpHelperWindowPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
+      </Group>
+    </Groups>
+
     <!--Buttons section. -->
     <!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
@@ -43,10 +49,12 @@
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidAbpHelperWindowPackageCmdSet" id="AbpHelperWindowCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1"/>
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Parent guid="guidAbpHelperWindowPackageCmdSet" id="MyMenuGroup" />
+        <!-- 下边两个是用来控制按钮的是否可用的 -->
+        <CommandFlag>DefaultDisabled</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>AbpHelperWindow</ButtonText>
+          <ButtonText>右键菜单</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -69,7 +77,9 @@
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidAbpHelperWindowPackageCmdSet" value="{cc37849a-0984-40b9-bc5c-023155ebdeba}">
       <IDSymbol name="AbpHelperWindowCommandId" value="0x0100" />
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
     </GuidSymbol>
+    
 
     <GuidSymbol name="guidImages" value="{061dc2c6-e856-4214-b456-753dd5dc4626}" >
       <IDSymbol name="bmpPic1" value="1" />

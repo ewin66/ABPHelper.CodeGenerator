@@ -1,7 +1,24 @@
 ﻿@inherits RazorEngine.Templating.TemplateBase<ABPHelper.CodeGenerator.Models.TemplateModels.ServiceFileModel>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Abp.Domain.Repositories;
+using Abp.Linq.Extensions;
+using XWFinanciaWaring.Domain.Plat.@(Model.BusinessName)s.Dto;
+using XWFinanciaWaring.Usual;
 namespace @Model.Namespace
 {
-    public class @(Model.ServiceName) : @(Model.AppName)AppServiceBase, @(Model.InterfaceName)
+    public class @(Model.ServiceName): UsualCrudAppService<@(Model.BusinessName),@(Model.BusinessName)ListDto,@(Model.BusinessName)DgInput,@(Model.BusinessName)Input,long>,@(Model.InterfaceName)
     {
+        public @(Model.ServiceName)(IRepository< @(Model.BusinessName), long> iRepository) : base(iRepository)
+        {
+        }
+
+        protected override IQueryable< @(Model.BusinessName)> CreateFilteredQuery(@(Model.BusinessName)DgInput input)
+        {
+            return base.CreateFilteredQuery(input);
+        }
     }
 }

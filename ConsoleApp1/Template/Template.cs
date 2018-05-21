@@ -10,13 +10,8 @@
  * 时间：
  * 修改说明：
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ABPHelper.CodeGenerator.Templates
+namespace ConsoleApp1.Template
 {
     class Template
     {

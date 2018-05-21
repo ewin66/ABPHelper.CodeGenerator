@@ -11,6 +11,5 @@ namespace ABPHelper.CodeGenerator.Views
         {
             InitializeComponent();
         }
-
     }
 }

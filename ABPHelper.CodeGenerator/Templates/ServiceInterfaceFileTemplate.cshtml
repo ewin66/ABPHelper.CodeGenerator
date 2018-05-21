@@ -3,7 +3,8 @@ using Abp.Application.Services;
 
 namespace @Model.Namespace
 {
-    public interface @(Model.InterfaceName) : IApplicationService
+    public interface @(Model.InterfaceName) : IUsualCrudAppService<@(Model.BusinessName)ListDto, @(Model.BusinessName)DgInput, @(Model.BusinessName)Input, long>
     {
+
     }
 }

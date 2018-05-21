@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using EnvDTE;
 using EnvDTE80;
@@ -48,6 +49,21 @@ namespace ABPHelper.CodeGenerator.Helper
                 if (projectItem.Name == name && projectItem.Kind == type) return projectItem;
             }
             return null;
+        }
+
+        /// <summary>
+        /// 得到模板的text文本，嵌入式资源
+        /// </summary>
+        /// <param name="templateName">模板名称，不需要cshtml</param>
+        /// <returns></returns>
+        protected string GetTemplateText(string templateName)
+        {
+            //获得当前运行的Assembly
+            Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream($"ABPHelper.CodeGenerator.Templates.{templateName}.cshtml");
+
+            s.Position = 0; //将stream的其实点归零 
+            StreamReader reader = new StreamReader(s, System.Text.Encoding.UTF8);
+            return reader.ReadToEnd();
         }
     }
 }
