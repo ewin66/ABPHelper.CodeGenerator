@@ -1,5 +1,7 @@
 ### 系统介绍:ABPHelper.CodeGenerator
 
+## 此项目后期未继续维护 ，请移步此项目  https://github.com/i542873057/SJNScaffolding
+
 是基于[ABPHelper](https://github.com/wakuflair/ABPHelper)的代码生成器,
 主要实现abp下的.net framework版本的代码生成器，目前只为了完成项目中代码的自动生成
 
