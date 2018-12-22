@@ -11,7 +11,7 @@ namespace ABPHelper.CodeGenerator
             {
                 msg = string.Format(message, parameters);
             }
-            return System.Windows.MessageBox.Show(msg, "ABPHelper", button, icon);
+            return System.Windows.MessageBox.Show(msg, "ABPHelper.CodeGenerator", button, icon);
         }
 
     }

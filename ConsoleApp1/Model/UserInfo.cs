@@ -11,7 +11,7 @@
  * 修改说明：
  */
 
-namespace ConsoleApp1.Model
+namespace ConsoleApp.Test.Model
 {
     public class UserInfo
     {

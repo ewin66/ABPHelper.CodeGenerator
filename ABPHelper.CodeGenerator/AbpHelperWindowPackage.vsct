@@ -51,10 +51,10 @@
       <Button guid="guidAbpHelperWindowPackageCmdSet" id="AbpHelperWindowCommandId" priority="0x0100" type="Button">
         <Parent guid="guidAbpHelperWindowPackageCmdSet" id="MyMenuGroup" />
         <!-- 下边两个是用来控制按钮的是否可用的 -->
-        <CommandFlag>DefaultDisabled</CommandFlag>
+        <!--<CommandFlag>DefaultDisabled</CommandFlag>-->
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>右键菜单</ButtonText>
+          <ButtonText>ABPHelper.CodeGenerator</ButtonText>
         </Strings>
       </Button>
     </Buttons>

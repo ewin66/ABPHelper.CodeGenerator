@@ -11,7 +11,7 @@
  * 修改说明：
  */
 
-namespace ConsoleApp1.Template
+namespace ConsoleApp.Test.Template
 {
     class Template
     {

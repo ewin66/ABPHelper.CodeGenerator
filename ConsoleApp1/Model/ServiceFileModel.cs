@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Model
+﻿namespace ConsoleApp.Test.Model
 {
     public class ServiceFileModel
     {

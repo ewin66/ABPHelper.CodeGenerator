@@ -19,7 +19,7 @@ namespace ABPHelper.CodeGenerator
     /// </para>
     /// </remarks>
     [Guid("1a406fba-71d5-462c-bada-82a009bc57a5")]
-    public class AbpHelperWindow : ToolWindowPane
+    public sealed class AbpHelperWindow : ToolWindowPane
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AbpHelperWindow"/> class.

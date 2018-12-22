@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleApp1.Model;
-using ConsoleApp1.Template;
+using ConsoleApp.Test.Model;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
 
-namespace ConsoleApp1
+namespace ConsoleApp.Test
 {
 
     class Program
